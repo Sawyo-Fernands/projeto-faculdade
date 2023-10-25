@@ -1,0 +1,45 @@
+
+
+.buttonComponent, .buttonDisabled {
+    padding: 0.3rem 1rem;
+    min-width: 120px;
+    height: 32px;
+    justify-content: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    color: #fff;
+    font-size: .875rem;
+    letter-spacing: .25px !important;
+    background: linear-gradient(87.93deg, #1F7192 0.59%, #17A2B8 137.98%);
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: 0.2s;
+    height: 32px;
+    font-weight: 700;
+
+    &:hover {
+        background-color: var(--hover-color);
+        color: #fff;
+    }
+    &:focus{
+        // border: 1px solid #17a2b8;
+        box-shadow: 0 0 2px 2px #bfdeff;
+    }
+
+    @media (max-width: 768px) {
+        width: 170px;
+    }
+
+    @media (max-width: 576px) {
+        width: 135px;
+    }
+}
+
+.buttonDisabled {
+    opacity: 35%;
+    cursor: no-drop;
+}

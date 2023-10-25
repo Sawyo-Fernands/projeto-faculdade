@@ -1,0 +1,83 @@
+.containerForm{
+    width: 43%;
+    height: 100vh;
+    box-shadow: 5px 0px 7px 4px #0000001A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .containerContent{
+        width: 69%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        @media(max-width:821px){
+            width: 80%;
+        }
+        .containerFormulario{
+            margin-top: -2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0.8rem;
+            border-radius: 0.25rem;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;                              
+            
+            @media(max-width:821px){
+                box-shadow: none;
+            }
+            .containerInputs{
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                flex-direction: column;
+                width: 100%;
+                .containerInput{
+                    width: 100%;
+                }
+               
+            }
+        }
+    }
+    @media(max-width:821px){
+        width: 100%;
+    }
+}
+.containerInfoSenha{
+    text-align: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    @media(max-width:821px){
+        flex-direction: column;
+        justify-content: left;
+        align-items: normal;
+    }
+    a{
+        outline: none;
+        text-decoration: none;
+        color: #757575;
+        margin-top: -0.2rem;
+    }
+}
+.containerDireitosReservados{
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 65%;
+}
+
+.divFinal{
+    background-color: #1F7192;
+    height: 15px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}

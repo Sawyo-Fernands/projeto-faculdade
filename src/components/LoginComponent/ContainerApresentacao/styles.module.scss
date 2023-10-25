@@ -1,0 +1,39 @@
+
+.containerApresentacao{
+    width: 57%;
+    height: 100vh;
+    background-color: #fafbfb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .containerContent{
+        width: 63%;
+        height: 80%;
+        margin: auto;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        .Image{
+            width: 80%;
+            height: 300px;
+            margin-top: 5rem;
+        }
+        h1{
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #333333;
+            margin-bottom: -1rem;
+            margin-top: 0rem;
+            span{
+                color: #1B8AA5;
+            }
+            // line-height: 47.88px;
+        }
+    }
+
+    
+    @media(max-width:821px){
+        display: none;
+    }
+}
