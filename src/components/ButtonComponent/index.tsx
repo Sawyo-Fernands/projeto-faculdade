@@ -5,6 +5,7 @@ interface ButtonComponentProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   isDisable?: boolean;
   datatestid?: string;
+  isReturn?:boolean;
 }
 
 function ButtonComponent(
@@ -12,6 +13,7 @@ function ButtonComponent(
     children,
     isDisable,
     datatestid,
+    isReturn,
     ...props
   }: ButtonComponentProps,
   ref: React.Ref<HTMLButtonElement>

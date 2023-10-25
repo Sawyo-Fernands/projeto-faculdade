@@ -1,20 +1,29 @@
+'use client'
+
 import Link from 'next/link';
 import styles from './styles.module.scss'
 import TextField from '@mui/material/TextField';
-import { Checkbox, FormControlLabel, InputAdornment } from '@mui/material';
 import ButtonComponent from 'src/components/ButtonComponent';
 import Image from 'next/image';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import LockIcon from '@mui/icons-material/Lock';
+import { useState } from 'react';
+import PersonIcon from '@mui/icons-material/Person';
+import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import BloodtypeIcon from '@mui/icons-material/Bloodtype';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
 
 export function ContainerForm(){
+
+    const [habilitarModulos,setHabilitarModulos] = useState(false)
 
     return(
         <div className={styles.containerForm}>
             <div className={styles.containerContent}>
                 <div className={styles.containerFormulario}>
                         {/* <h2>logo</h2> */}
-                        <Image
+                        {
+                            !habilitarModulos ? (
+                                <>
+                                 <Image
                             src={'/logoDoceCuidado.png'}
                             alt='Software de gestão de saude'
                             height={190}
@@ -51,9 +60,54 @@ export function ContainerForm(){
                                 </Link>
                             </div>
                             <div  className={styles.containerInput}>
-                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"55px"}}>Entrar</ButtonComponent>
+                            <ButtonComponent 
+                            onClick={()=>setHabilitarModulos(!habilitarModulos)}
+                            style={{width:"100%",fontWeight:"600",height:"55px"}}>Entrar</ButtonComponent>
                             </div>
                         </div>
+                                </>
+                            ) : (
+                                <>
+                                 <Image
+                            src={'/logoDoceCuidado.png'}
+                            alt='Software de gestão de saude'
+                            height={190}
+                            width={300}
+                            className={styles.Image}
+                            />
+                        
+                        <div className={styles.containerInputs}>
+                            <div className={styles.containerInput}>
+                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
+                                <FactCheckIcon  fontSize='medium'/>  Exame
+                            </ButtonComponent>
+                            </div>
+                            <div className={styles.containerInput}>
+                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
+                              <PersonIcon  fontSize='medium'/>  Consulta
+                            </ButtonComponent>
+                            </div>
+                            <div className={styles.containerInput}>
+                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
+                                <WatchLaterIcon  fontSize='medium'/>  Marcar Horário
+                            </ButtonComponent>
+                            </div>
+                            <div className={styles.containerInput}>
+                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
+                                <BloodtypeIcon  fontSize='medium'/>  Registrar Glicose
+                            </ButtonComponent>
+                            </div>
+                            <div  className={styles.containerInput}>
+                            <ButtonComponent 
+                            onClick={()=>setHabilitarModulos(!habilitarModulos)}
+                            isReturn={true}
+                            style={{width:"100%",fontWeight:"600",height:"55px",backgroundColor:"#c94848 !important"}}>Sair</ButtonComponent>
+                            </div>
+                        </div>
+                                </>
+                            )
+                        }
+                      
                 </div>
      
             </div>
