@@ -10,9 +10,11 @@ import PersonIcon from '@mui/icons-material/Person';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
+import { useRouter } from 'next/navigation';
+import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 
 export function ContainerForm(){
-
+    const router = useRouter()
     const [habilitarModulos,setHabilitarModulos] = useState(false)
 
     return(
@@ -83,16 +85,22 @@ export function ContainerForm(){
                             </ButtonComponent>
                             </div>
                             <div className={styles.containerInput}>
-                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
+                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}
+                            onClick={()=>router.push("/consulta")}
+                            >
                               <PersonIcon  fontSize='medium'/>  Consulta
                             </ButtonComponent>
                             </div>
                             <div className={styles.containerInput}>
-                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
-                                <WatchLaterIcon  fontSize='medium'/>  Marcar Horário
+                            <ButtonComponent 
+                            onClick={()=>router.push("/medicamento")}
+                            style={{width:"100%",fontWeight:"600",height:"40px"}}>
+                                <MedicalServicesIcon  fontSize='medium'/>  Medicamento
                             </ButtonComponent>
                             </div>
-                            <div className={styles.containerInput}>
+                            <div className={styles.containerInput}
+                             onClick={()=>router.push("/glicose")}
+                            >
                             <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
                                 <BloodtypeIcon  fontSize='medium'/>  Registrar Glicose
                             </ButtonComponent>
