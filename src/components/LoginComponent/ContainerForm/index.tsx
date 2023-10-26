@@ -80,7 +80,9 @@ export function ContainerForm(){
                         
                         <div className={styles.containerInputs}>
                             <div className={styles.containerInput}>
-                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
+                            <ButtonComponent
+                             onClick={()=>router.push("/exame")}
+                            style={{width:"100%",fontWeight:"600",height:"40px"}}>
                                 <FactCheckIcon  fontSize='medium'/>  Exame
                             </ButtonComponent>
                             </div>
