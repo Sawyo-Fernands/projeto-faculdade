@@ -22,12 +22,16 @@ export function ExameComponent() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
   const impressaoRef = useRef<HTMLDivElement>(null)
   const handlePrint = useReactToPrint({
     content: () => impressaoRef?.current,
-    documentTitle: 'Atendimento'
+    documentTitle: 'Atendimento',
+    onAfterPrint() {
+      reset({})
+    },
   });
 
   const [listaDados, setListaDados] = useState<any>(null);
@@ -35,6 +39,7 @@ export function ExameComponent() {
   function gerarRelatorio() {
     const submit = handleSubmit((data) => {
       setListaDados(data);
+      
     });
     submit();
 
@@ -278,10 +283,18 @@ export function ExameComponent() {
           listaDados && (
             <div style={{ display:"none"}}>
             <div ref={impressaoRef} className={styles.containerPrint}>
-              <div>
+              <div className={styles.containerTitle}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                <Image
+                  src={"/logoDoceCuidado.png"}
+                  alt="Software de gestão de saude"
+                  height={110}
+                  width={140}
+                  className={styles.Image}
+                />
                 <h3>Data de Agendamento dos exames</h3>
               </div>
-              
+            </div>
               <div className={styles.containerInfos}>
                    <p>Dosagem de Glicose: {listaDados?.glicose && format(new Date(listaDados?.glicose),'dd/MM/yyyy')}</p>   
               </div>

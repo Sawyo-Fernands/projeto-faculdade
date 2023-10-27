@@ -8,16 +8,48 @@ interface CardMedicamentoProps{
 }
 
 export function CardMedicamento({nomeMedicamento,quantidade}:CardMedicamentoProps){
+
     return(
         <div className={styles.card}>
             <h3>{nomeMedicamento}</h3>
-            <div>
-                Número de doses : {quantidade}
-            </div>
+       
             <div style={{marginTop:"0.5rem"}}>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="1" />
-                          <FormControlLabel control={<Checkbox defaultChecked />} label="2" />
-                          <FormControlLabel control={<Checkbox defaultChecked />} label="3" />
+                {
+                    nomeMedicamento.indexOf("metformina") >= 0 && (
+                        <>
+                         <FormControlLabel control={<Checkbox  />} label="1" />
+                          <FormControlLabel control={<Checkbox  />} label="2" />
+                          <FormControlLabel control={<Checkbox  />} label="3" />
+                        </>
+                    )
+                }
+                   {
+                    nomeMedicamento.indexOf("Gliclazida") >= 0 && (
+                        <>
+                         <FormControlLabel control={<Checkbox  />} label="1" />
+                        </>
+                    )
+                }  
+                    {
+                    nomeMedicamento.indexOf("80mg") >= 0 && (
+                        <>
+                         <FormControlLabel control={<Checkbox  />} label="1" />
+                         <FormControlLabel control={<Checkbox  />} label="2" />
+
+                        </>
+                    )
+                }     
+                  {
+                    nomeMedicamento == 'Glibenclamida 5mg' && (
+                        <>
+                         <FormControlLabel control={<Checkbox  />} label="1" />
+                         <FormControlLabel control={<Checkbox  />} label="2" />
+                         <FormControlLabel control={<Checkbox  />} label="3" />
+
+                        </>
+                    )
+                }    
+                  
 
             </div>
         </div>

@@ -9,12 +9,38 @@ import Checkbox from '@mui/material/Checkbox';
 import ButtonComponent from "../ButtonComponent";
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import Image from "next/image";
+import { useState } from 'react'
+import Radio from '@mui/material/Radio';
+import { toast } from "react-toastify";
+
 const poppins = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 export function GlicoseComponent() {
+  const [valorGlicose,setValorGlicose] = useState(0)
+  const [ bolJejum,setBolJejum] = useState(false)
+
+  function salvarGlicose(){
+
+    if(valorGlicose < 100){
+      localStorage.setItem("tipoDiabetico",'Normal - Risco Baixo')
+      return  toast.info('Normal - Risco Baixo')
+    }
+    if(valorGlicose >= 100 && valorGlicose <= 125){
+      localStorage.setItem('tipoDiabetico','Pre-diabetico - Risco Médio')
+      return  toast.info('Pre-diabetico - Risco Médio')
+    }
+    if(valorGlicose > 125 && valorGlicose <= 150){
+      localStorage.setItem('tipoDiabetico','Diabetico I - Risco Alto')
+      return  toast.info('Diabetico I - Risco Alto')
+    }
+    if(valorGlicose > 150){
+      localStorage.setItem('tipoDiabetico','Diabetico II - Risco Muito Alto')
+      return  toast.info('Diabetico II - Risco Muito Alto')
+    }
+  }
 
   return (
       <main className={`${poppins.className} ${styles.mainContainer}`}>
@@ -43,18 +69,29 @@ export function GlicoseComponent() {
                                   </InputAdornment>
                                 ),
                               }}
+                              type="number"
+                              value={valorGlicose}
+                              disabled={!bolJejum}
+                              onChange={(e)=>setValorGlicose(Number(e.target.value))}
                              id="usuário" label="Nivel de Glicose" variant="outlined" />
                         </div>
                         <div>
                         <div style={{fontWeight:"bold"}}>
                           <p>Jejum</p>
-                          <FormControlLabel control={<Checkbox defaultChecked />} label="Sim" />
-                          <FormControlLabel control={<Checkbox defaultChecked />} label="não" />
+                          <FormControlLabel value="S" control={<Radio checked={bolJejum}  onChange={(e)=>{
+                            setBolJejum(true)
+
+                          }} />} label="Sim" />
+                     <FormControlLabel value="N" control={<Radio  checked={!bolJejum}  onChange={(e)=>{
+                            setBolJejum(false)
+                            setValorGlicose(0)
+                          }} />} label="Não" />
+
                         </div>
                         </div>
                         
                         <div style={{display:"flex",alignItems:"center",gap:'0.5rem',justifyContent:"space-around"}}>
-                        <ButtonComponent>
+                        <ButtonComponent onClick={salvarGlicose}>
                             Salvar
                         </ButtonComponent>
                         <ButtonComponent>

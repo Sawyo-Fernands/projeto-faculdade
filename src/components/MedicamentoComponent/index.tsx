@@ -29,48 +29,50 @@ export function MedicamentoComponent() {
                             width={140}
                             className={styles.Image}
                             />
-                    <h3>Medicamentos</h3>
+                    <h3>Medicamentos (Check-In Diário)</h3>
                     </div>
                 </div>
                 <div className={styles.containerFlex}>
                 <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="Cloridrato de metformina 500mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="Cloridrato de metformina 800mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="Glibenclamida 5mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="Gliclazida 30mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="
+                Gliclazida 80mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="
+                Gliclazida 60mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="Gliclazida 30mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="Gliclazida 80mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="Cloridrato de metformina 800mg"
                 quantidade={3}
                 />
                  <CardMedicamento
-                nomeMedicamento="Medicamento Teste"
+                nomeMedicamento="Gliclazida 30mg"
                 quantidade={3}
                 />
                 </div>
