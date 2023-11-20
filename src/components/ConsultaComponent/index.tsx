@@ -10,6 +10,7 @@ import ButtonComponent from "../ButtonComponent";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import { useRouter } from "next/router";
 const poppins = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -17,7 +18,7 @@ const poppins = Roboto({
 
 export function ConsultaComponent() {
   const [listaConsulta, setListaConsulta] = useState<any>([]);
-
+  const router = useRouter()
   const [nomeMedico, setNomeMedico] = useState("");
   const [dataMedico, setDataMedico] = useState("");
 
@@ -32,7 +33,6 @@ export function ConsultaComponent() {
   const [listaDentista, setListaDentista] = useState<any>([]);
   const impressaoRef = useRef<HTMLDivElement>(null);
 
-  console.log({ listaConsulta });
 
   const handlePrint = useReactToPrint({
     content: () => impressaoRef?.current,
@@ -77,6 +77,13 @@ export function ConsultaComponent() {
               }}
             >
               Imprimir Relatório
+            </ButtonComponent>
+            <ButtonComponent
+              onClick={() => {
+                router.back();
+              }}
+            >
+              Sair
             </ButtonComponent>
           </div>
         </div>

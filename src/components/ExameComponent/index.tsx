@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { format, parseISO } from "date-fns";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import { useRouter } from "next/router";
 
 const poppins = Roboto({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export function ExameComponent() {
       reset({})
     },
   });
-
+  const router = useRouter()
   const [listaDados, setListaDados] = useState<any>(null);
   
   function gerarRelatorio() {
@@ -52,7 +53,8 @@ export function ExameComponent() {
     <main className={`${poppins.className} ${styles.mainContainer}`}>
       <div className={styles.containerFlexContent}>
         <div className={styles.containerTitle}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem",justifyContent:"space-between" }}>
+            <div  style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
             <Image
               src={"/logoDoceCuidado.png"}
               alt="Software de gestão de saude"
@@ -61,7 +63,16 @@ export function ExameComponent() {
               className={styles.Image}
             />
             <h3>Cadastro de Exames</h3>
-          </div>
+            </div>
+           
+            <ButtonComponent
+              onClick={() => {
+                router.back();
+              }}
+            >
+              Sair
+            </ButtonComponent>
+         </div>
         </div>
         <div className={styles.containerFlex}>
           <div className={styles.containerCard}>

@@ -10,18 +10,20 @@ import ButtonComponent from "../ButtonComponent";
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import Image from "next/image";
 import { CardMedicamento } from "./CardMedicamento";
+import { useRouter } from "next/router";
 const poppins = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 export function MedicamentoComponent() {
-
+  const router = useRouter()
   return (
       <main className={`${poppins.className} ${styles.mainContainer}`}>
             <div className={styles.containerFlexContent}>
                 <div className={styles.containerTitle}>
-                    <div style={{display:"flex",alignItems:'center',gap:'0.4rem'}}>
+                    <div style={{display:"flex",alignItems:'center',gap:'0.4rem',justifyContent:'space-between'}}>
+                    <div  style={{display:"flex",alignItems:'center',gap:'0.4rem'}}>
                     <Image
                             src={'/logoDoceCuidado.png'}
                             alt='Software de gestão de saude'
@@ -31,6 +33,15 @@ export function MedicamentoComponent() {
                             />
                     <h3>Medicamentos (Check-In Diário)</h3>
                     </div>
+                    <ButtonComponent
+              onClick={() => {
+                router.back();
+              }}
+            >
+              Sair
+            </ButtonComponent>
+                    </div>
+                    
                 </div>
                 <div className={styles.containerFlex}>
                 <CardMedicamento

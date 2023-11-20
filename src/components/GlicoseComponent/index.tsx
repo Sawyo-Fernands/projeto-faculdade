@@ -12,6 +12,7 @@ import Image from "next/image";
 import { useState } from 'react'
 import Radio from '@mui/material/Radio';
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const poppins = Roboto({
   subsets: ["latin"],
@@ -41,12 +42,13 @@ export function GlicoseComponent() {
       return  toast.info('Diabetico II - Risco Muito Alto')
     }
   }
-
+  const router = useRouter()
   return (
       <main className={`${poppins.className} ${styles.mainContainer}`}>
             <div className={styles.containerFlexContent}>
                 <div className={styles.containerTitle}>
-                    <div style={{display:"flex",alignItems:'center',gap:'0.4rem'}}>
+                    <div style={{display:"flex",alignItems:'center',gap:'0.4rem',justifyContent:'space-between'}}>
+                    <div  style={{display:"flex",alignItems:'center',gap:'0.4rem'}}>
                     <Image
                             src={'/logoDoceCuidado.png'}
                             alt='Software de gestão de saude'
@@ -55,6 +57,14 @@ export function GlicoseComponent() {
                             className={styles.Image}
                             />
                     <h3>Cadastro de Glicose em Jejum(Mensal)</h3>
+                    </div>
+                    <ButtonComponent
+              onClick={() => {
+                router.back();
+              }}
+            >
+              Sair
+            </ButtonComponent>
                     </div>
                 </div>
                 <div className={styles.containerFlex}>
