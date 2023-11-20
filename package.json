@@ -13,7 +13,7 @@
     "@mui/icons-material": "^5.14.14",
     "@mui/material": "^5.14.15",
     "apexcharts": "^3.44.0",
-    "axios": "^1.5.1",
+    "axios": "^1.6.2",
     "date-fns": "^2.30.0",
     "next": "latest",
     "react": "^18.2.0",
