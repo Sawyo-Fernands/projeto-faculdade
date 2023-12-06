@@ -13,6 +13,7 @@ import { useState } from 'react'
 import Radio from '@mui/material/Radio';
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { Dashboard } from "../Dashboard";
 
 const poppins = Roboto({
   subsets: ["latin"],
@@ -27,44 +28,40 @@ export function GlicoseComponent() {
 
     if(valorGlicose < 100){
       localStorage.setItem("tipoDiabetico",'Normal - Risco Baixo')
-      return  toast.info('Normal - Risco Baixo')
+      return  toast.success('Normal - Risco Baixo')
     }
-    if(valorGlicose >= 100 && valorGlicose <= 125){
+    if(valorGlicose >= 100 ){
       localStorage.setItem('tipoDiabetico','Pre-diabetico - Risco Médio')
-      return  toast.info('Pre-diabetico - Risco Médio')
+      return  toast.error('Nível de glicose alto! Procure Atendimento Médico')
     }
-    if(valorGlicose > 125 && valorGlicose <= 150){
-      localStorage.setItem('tipoDiabetico','Diabetico I - Risco Alto')
-      return  toast.info('Diabetico I - Risco Alto')
-    }
-    if(valorGlicose > 150){
-      localStorage.setItem('tipoDiabetico','Diabetico II - Risco Muito Alto')
-      return  toast.info('Diabetico II - Risco Muito Alto')
-    }
+    // if(valorGlicose > 125 && valorGlicose <= 150){
+    //   localStorage.setItem('tipoDiabetico','Diabetico I - Risco Alto')
+    //   return  toast.info('Diabetico I - Risco Alto')
+    // }
+    // if(valorGlicose > 150){
+    //   localStorage.setItem('tipoDiabetico','Diabetico II - Risco Muito Alto')
+    //   return  toast.info('Diabetico II - Risco Muito Alto')
+    // }
   }
   const router = useRouter()
   return (
-      <main className={`${poppins.className} ${styles.mainContainer}`}>
+    <>
+    <Dashboard />
+    <main className={`${poppins.className} ${styles.mainContainer}`}>
             <div className={styles.containerFlexContent}>
                 <div className={styles.containerTitle}>
                     <div style={{display:"flex",alignItems:'center',gap:'0.4rem',justifyContent:'space-between'}}>
                     <div  style={{display:"flex",alignItems:'center',gap:'0.4rem'}}>
-                    <Image
+                    {/* <Image
                             src={'/logoDoceCuidado.png'}
                             alt='Software de gestão de saude'
                             height={110}
                             width={140}
                             className={styles.Image}
-                            />
+                            /> */}
                     <h3>Cadastro de Glicose em Jejum(Mensal)</h3>
                     </div>
-                    <ButtonComponent
-              onClick={() => {
-                router.back();
-              }}
-            >
-              Sair
-            </ButtonComponent>
+                   
                     </div>
                 </div>
                 <div className={styles.containerFlex}>
@@ -112,6 +109,8 @@ export function GlicoseComponent() {
                 </div>
             </div>
       </main>
+    </>
+     
      
   );
 }

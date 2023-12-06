@@ -21,7 +21,6 @@ export function ContainerForm(){
     const [password,setPassword] = useState('')
 
 
-
     return(
         <div className={styles.containerForm}>
             <div className={styles.containerContent}>
@@ -58,7 +57,7 @@ export function ContainerForm(){
                             </div>
                             <div  className={styles.containerInput}>
                             <ButtonComponent 
-                            onClick={()=>setHabilitarModulos(!habilitarModulos)}
+                            onClick={()=>router.push("/instrucoes")}
                             style={{width:"100%",fontWeight:"600",height:"55px"}}>Entrar</ButtonComponent>
                             </div>
                         </div>
@@ -74,37 +73,9 @@ export function ContainerForm(){
                             />
                         
                         <div className={styles.containerInputs}>
-                            <div className={styles.containerInput}>
-                            <ButtonComponent
-                             onClick={()=>router.push("/exame")}
-                            style={{width:"100%",fontWeight:"600",height:"40px"}}>
-                                <FactCheckIcon  fontSize='medium'/>  Exame
-                            </ButtonComponent>
-                            </div>
-                            <div className={styles.containerInput}>
-                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}
-                            onClick={()=>router.push("/consulta")}
-                            >
-                              <PersonIcon  fontSize='medium'/>  Consulta
-                            </ButtonComponent>
-                            </div>
-                            <div className={styles.containerInput}>
-                            <ButtonComponent 
-                            onClick={()=>router.push("/medicamento")}
-                            style={{width:"100%",fontWeight:"600",height:"40px"}}>
-                                <MedicalServicesIcon  fontSize='medium'/>  Medicamento
-                            </ButtonComponent>
-                            </div>
-                            <div className={styles.containerInput}
-                             onClick={()=>router.push("/glicose")}
-                            >
-                            <ButtonComponent style={{width:"100%",fontWeight:"600",height:"40px"}}>
-                                <BloodtypeIcon  fontSize='medium'/>  Registrar Glicose
-                            </ButtonComponent>
-                            </div>
                             <div  className={styles.containerInput}>
                             <ButtonComponent 
-                            onClick={()=>setHabilitarModulos(!habilitarModulos)}
+                            onClick={()=>setHabilitarModulos(false)}
                             isReturn={true}
                             style={{width:"100%",fontWeight:"600",height:"55px",backgroundColor:"#c94848 !important"}}>Sair</ButtonComponent>
                             </div>

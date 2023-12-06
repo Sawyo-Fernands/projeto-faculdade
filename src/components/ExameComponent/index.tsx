@@ -12,6 +12,7 @@ import { format, parseISO } from "date-fns";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { useRouter } from "next/router";
+import { Dashboard } from "../Dashboard";
 
 const poppins = Roboto({
   subsets: ["latin"],
@@ -50,28 +51,23 @@ export function ExameComponent() {
   }
 
   return (
+    <>
+    <Dashboard />
     <main className={`${poppins.className} ${styles.mainContainer}`}>
       <div className={styles.containerFlexContent}>
         <div className={styles.containerTitle}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.4rem",justifyContent:"space-between" }}>
             <div  style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-            <Image
+            {/* <Image
               src={"/logoDoceCuidado.png"}
               alt="Software de gestão de saude"
               height={110}
               width={140}
               className={styles.Image}
-            />
+            /> */}
             <h3>Cadastro de Exames</h3>
             </div>
-           
-            <ButtonComponent
-              onClick={() => {
-                router.back();
-              }}
-            >
-              Sair
-            </ButtonComponent>
+        
          </div>
         </div>
         <div className={styles.containerFlex}>
@@ -353,5 +349,7 @@ export function ExameComponent() {
      
       </div>
     </main>
+    </>
+ 
   );
 }

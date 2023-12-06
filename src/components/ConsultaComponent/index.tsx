@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { useRouter } from "next/router";
+import { Dashboard } from "../Dashboard";
 const poppins = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -59,17 +60,19 @@ export function ConsultaComponent() {
   }
 
   return (
-    <main className={`${poppins.className} ${styles.mainContainer}`}>
+    <>
+      <Dashboard />
+      <main className={`${poppins.className} ${styles.mainContainer}`}>
       <div className={styles.containerFlexContent}>
         <div className={styles.containerTitle}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-            <Image
+            {/* <Image
               src={"/logoDoceCuidado.png"}
               alt="Software de gestão de saude"
               height={110}
               width={140}
               className={styles.Image}
-            />
+            /> */}
             <h3>Cadastro de Consultas</h3>
             <ButtonComponent
               onClick={() => {
@@ -78,13 +81,7 @@ export function ConsultaComponent() {
             >
               Imprimir Relatório
             </ButtonComponent>
-            <ButtonComponent
-              onClick={() => {
-                router.back();
-              }}
-            >
-              Sair
-            </ButtonComponent>
+          
           </div>
         </div>
         <div className={styles.containerFlex}>
@@ -335,5 +332,7 @@ export function ConsultaComponent() {
         </div>
       </div>
     </main>
+    </>
+   
   );
 }
