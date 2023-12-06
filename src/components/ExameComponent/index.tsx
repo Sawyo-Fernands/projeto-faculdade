@@ -13,6 +13,7 @@ import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { useRouter } from "next/router";
 import { Dashboard } from "../Dashboard";
+import { toast } from "react-toastify";
 
 const poppins = Roboto({
   subsets: ["latin"],
@@ -66,6 +67,11 @@ export function ExameComponent() {
               className={styles.Image}
             /> */}
             <h3>Cadastro de Exames</h3>
+            <ButtonComponent
+            onClick={()=>toast.success("Exame enviado!")}
+            >
+              Enviar 
+            </ButtonComponent>
             </div>
         
          </div>
