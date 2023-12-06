@@ -68,3 +68,31 @@
     }
 
 }
+
+.fieldsetContainer {
+    border: 1px solid #000a991a;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 0;
+    padding: 0.5rem;
+    text-align: justify;
+
+    // Usar na tag <legend>
+    .fieldsetTitle {
+        margin-top: 0;
+        margin-bottom: 0.01rem;
+        font-size: 1rem;
+        color: #6d8497;
+        font-weight: 700;
+    }
+}
+
+.containerInstrucoes{
+    height:490px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    @media(min-width: 1400px){
+        height: 590px;
+    }
+}
