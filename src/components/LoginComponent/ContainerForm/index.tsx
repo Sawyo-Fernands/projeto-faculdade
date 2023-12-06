@@ -52,7 +52,7 @@ export function ContainerForm(){
                             </div>
                             <div className={styles.containerInfoSenha}>
                                 <Link href={'/'}>
-                                Esqueçeu a senha ?
+                                Esqueceu a senha ?
                                 </Link>
                             </div>
                             <div  className={styles.containerInput}>
